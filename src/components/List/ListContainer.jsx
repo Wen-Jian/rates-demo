@@ -20,10 +20,14 @@ const ListContainer = () => {
       const response = await getList();
       const { rates } = response;
       if (Object.keys(rates).length > 0 && !isUnmounted.current) {
+        localStorage.setItem("listData", rates);
         dispatch(appendData(rates));
       }
     } catch (err) {
-      // setIsError(true);
+      const data = localStorage.getItem("listData");
+      if (Object.keys(rates).length > 0 && !isUnmounted.current) {
+        dispatch(appendData(data));
+      }
     }
   };
 
