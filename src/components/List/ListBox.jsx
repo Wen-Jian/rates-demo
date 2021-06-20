@@ -3,7 +3,7 @@ import style from "../../styles/list.module.scss";
 
 const ListBox = ({ name, type, unit, value }) => {
   return (
-    <tr className={style.list_box_wrapper}>
+    <tr data-testid="list-cells" className={style.list_box_wrapper} key={name}>
       <td>{name}</td>
       <td>{type}</td>
       <td>{unit}</td>

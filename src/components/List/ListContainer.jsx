@@ -22,8 +22,8 @@ const ListContainer = () => {
       if (Object.keys(rates).length > 0 && !isUnmounted.current) {
         dispatch(appendData(rates));
       }
-    } catch {
-      setIsError(true);
+    } catch (err) {
+      // setIsError(true);
     }
   };
 
@@ -48,6 +48,7 @@ const ListContainer = () => {
       isUnmounted.current = ture;
     };
   }, []);
+
   if (data.length === 0) {
     return null;
   }
@@ -61,13 +62,14 @@ const ListContainer = () => {
             <div className={style.list_wrapper}>
               <table
                 className={`${style.list_table_wrapper} ${style.layout} ${style.content_font_size}`}
+                data-testid="test-id"
               >
                 {Object.keys(data)
-                  .slice(offset, offset + listSize - 1)
+                  .slice(offset * listSize, (offset + 1) * listSize)
                   .map((key, index) => {
                     const rateInfo = data[key];
                     return (
-                      <>
+                      <React.Fragment key={index}>
                         {index === 0 && (
                           <tr>
                             <th>name</th>
@@ -76,8 +78,8 @@ const ListContainer = () => {
                             <th>value</th>
                           </tr>
                         )}
-                        <ListBox {...rateInfo} key={index} />
-                      </>
+                        <ListBox {...rateInfo} />
+                      </React.Fragment>
                     );
                   })}
               </table>

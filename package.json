@@ -1,14 +1,23 @@
 {
   "scripts": {
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "test": "yarn jest --collectCoverage"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^5.0.1",
+    "global-jsdom": "^8.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.4",
+    "jest-scss-transform": "^1.0.1",
+    "jsdom": "^16.6.0",
     "sass": "^1.34.0",
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",

@@ -22,6 +22,7 @@ const Pagination = ({
             value={pageSize}
             onChange={(e) => pageSizeHandler(Number(e.target.value))}
             className={`${style.content_font_size}`}
+            data-testid="select"
           >
             {pageSizeList.map((val, index) => {
               return (
@@ -38,12 +39,14 @@ const Pagination = ({
           <button
             disabled={currentPage === 0}
             onClick={() => setCurrentPage(currentPage - 1)}
+            data-testid="last-page"
           >
             {"<"}
           </button>
           <button
             disabled={currentPage === Math.round(totalCount / pageSize)}
             onClick={() => setCurrentPage(currentPage + 1)}
+            data-testid="next-page"
           >
             {">"}
           </button>
